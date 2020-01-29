@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Rock - Paper - Scissors</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="container-fluid text-center bg-dark text-light">
+    <h1>Rock Paper Scissors</h1>
+  </header>
+  <main class="container-fluid">
+
+    <!-- Begin Game hides play button -->
+    <div class="not-playing" id="not-playing">
+      <h2>Click Play to begin the game!</h2>
+      <button class="btn btn-success" onclick="startGame()">Play</button>
+    </div>
+    <!--  -->
+
+    <!-- While playing game this is shown -->
+    <div id="is-playing">
+
+      <div class="end-game-btn row">
+        <div class="offset-9 col-2">
+          <button class="btn btn-danger  text-center" onclick="endGame()">End Game</button>
+        </div>
+      </div>
+
+      <!-- Rock - Paper - Scissors game display -->
+      <div class="game-area text-center" id="game-area">
+
+        <!-- display player action -->
+        <section class="row" id="action-display">
+          <div class="col-12 col-md-6">
+            <h3 class="mb-3">Computer <span id="computer-total">0</span></h3>
+            <img src="https://www.stickpng.com/assets/thumbs/5a4613ddd099a2ad03f9c994.png" alt="" id="computer-img"
+              width="250rem">
+          </div>
+          <div class="col-12 col-md-6" id="human-display">
+            <h3 class="mb-3">Human <span id="human-total">0</span></h3>
+            <img src="https://www.stickpng.com/assets/thumbs/5a4613ddd099a2ad03f9c994.png" alt="" id="human-img"
+              width="250rem">
+          </div>
+        </section>
+        <!--  -->
+
+        <section class="user-controls row" id="usr-controls">
+          <div class="col-12 mt-5 mb-1">
+            <button class="btn btn-info" onclick="humanTurn('rock')">Rock</button>
+            <button class="btn btn-info" onclick="humanTurn('paper')">Paper</button>
+            <button class="btn btn-info" onclick="humanTurn('scissors')">Scissors</button>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-info" onclick="humanTurn('lizard')">Lizard</button>
+            <button class="btn btn-info" onclick="humanTurn('spock')">Spock</button>
+            <button class="btn btn-info" onclick="randomImg('human'); computerTurn()">Random</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
