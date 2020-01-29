@@ -4,6 +4,9 @@ let notPlaying = document.getElementById('not-playing');
 let isPlaying = document.getElementById('is-playing');
 let humanImg = document.getElementById('human-img');
 let computerImg = document.getElementById('computer-img');
+let humanTotal = document.getElementById('human-total');
+let computerTotal = document.getElementById('computer-total');
+let winner = document.getElementById('winner');
 
 // image urls
 let rockImg = 'https://kicd-am.sagacom.com/wp-content/blogs.dir/107/files/2015/08/meteorite.jpg';
@@ -47,7 +50,11 @@ let gameActions = {
     'rock': true,
   }
 }
-
+//Computers and Humans current state
+let computerActionState = '';
+let computerScore = 0;
+let humanActionState = '';
+let humanScore = 0;
 //Actions Array
 let gameArray = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
@@ -90,9 +97,12 @@ function takingTurn(val, player) {
   if (player == 'computer') {
     // @ts-ignore
     computerImg.src = imgUrl;
+    computerActionState = val;
+    whoWins();
   } else if (player == 'human') {
     // @ts-ignore
     humanImg.src = imgUrl;
+    humanActionState = val;
   }
 }
 
@@ -108,4 +118,41 @@ function computerTurn() {
 function randomImg(player) {
   let num = Math.floor(Math.random() * 5);
   takingTurn(gameArray[num], player)
+}
+
+//checking for winner
+function whoWins() {
+  if (gameActions[humanActionState][computerActionState] && humanActionState != computerActionState) {
+    humanScore++;
+    winner.textContent = "Win!";
+    winner.style.color = "green";
+    changeScores()
+    if (humanScore == 5) {
+      resetScores();
+      alert('You win!')
+    }
+  } else if (humanActionState == computerActionState) {
+    winner.textContent = "Tie...";
+    winner.style.color = 'blue'
+  } else {
+    computerScore++;
+    winner.textContent = "Loser";
+    winner.style.color = 'red';
+    changeScores()
+    if (computerScore == 5) {
+      resetScores();
+      alert('You lose!')
+    }
+  }
+}
+
+function changeScores() {
+  humanTotal.textContent = humanScore.toString();
+  computerTotal.textContent = computerScore.toString();
+}
+
+function resetScores() {
+  humanScore = 0;
+  computerScore = 0;
+  changeScores();
 }
