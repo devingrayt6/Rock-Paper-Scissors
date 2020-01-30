@@ -58,19 +58,20 @@ let humanScore = 0;
 //Actions Array
 let gameArray = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
-// function startGame() {
-//   // Hide play game button
-//   notPlaying.style.display = 'none';
-//   //Show game
-//   isPlaying.style.display = 'flex';
-// }
+function startGame() {
+  // Hide play game button
+  notPlaying.style.display = 'none';
+  //Show game
+  isPlaying.style.display = 'block';
+}
 
-// function endGame() {
-//   // Hide play game button
-//   notPlaying.style.display = 'flex';
-//   //Show game
-//   isPlaying.style.display = 'none';
-// }
+function endGame() {
+  // Hide play game button
+  notPlaying.style.display = 'flex';
+  //Show game
+  isPlaying.style.display = 'none';
+  resetScores();
+}
 
 function takingTurn(val, player) {
   let imgUrl = '';
@@ -124,9 +125,9 @@ function randomImg(player) {
 function whoWins() {
   if (gameActions[humanActionState][computerActionState] && humanActionState != computerActionState) {
     humanScore++;
+    changeScores()
     winner.textContent = "Win!";
     winner.style.color = "green";
-    changeScores()
     if (humanScore == 5) {
       resetScores();
       alert('You win!')
@@ -136,9 +137,9 @@ function whoWins() {
     winner.style.color = 'blue'
   } else {
     computerScore++;
+    changeScores()
     winner.textContent = "Loser";
     winner.style.color = 'red';
-    changeScores()
     if (computerScore == 5) {
       resetScores();
       alert('You lose!')
